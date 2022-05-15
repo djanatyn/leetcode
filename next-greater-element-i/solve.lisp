@@ -1,3 +1,5 @@
+;; https://leetcode.com/problems/next-greater-element-i/
+
 (defparameter *example-1*
   '((nums1 . (4 1 2))
     (nums2 . (1 3 4 2))
@@ -20,8 +22,7 @@
 
 (defun solve-example (example)
   (let ((nums1 (rest (assoc 'nums1 example)))
-        (nums2 (rest (assoc 'nums2 example)))
-        (answer (rest (assoc 'answer example))))
+        (nums2 (rest (assoc 'nums2 example))))
     (solve nums1 nums2)))
 
 (defun solve-examples ()
