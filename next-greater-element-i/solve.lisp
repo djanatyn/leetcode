@@ -27,3 +27,11 @@
 (defun solve-examples ()
   `((example-1 . ,(solve-example *example-1*))
     (example-2 . ,(solve-example *example-2*))))
+
+(defun check-example-solutions (solutions)
+  (let ((answer-1 (rest (assoc 'answer *example-1*)))
+        (answer-2 (rest (assoc 'answer *example-2*)))
+        (solution-1 (rest (assoc 'example-1 solutions)))
+        (solution-2 (rest (assoc 'example-2 solutions))))
+    (assert (equal answer-1 solution-1))
+    (assert (equal answer-2 solution-2))))
