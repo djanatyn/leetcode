@@ -28,6 +28,7 @@
 (defun brute-force (a b)
   (iterate
     (for repetitions upfrom 0)
+    (if (>= repetitions 1000) (error "hit max repetitions")) ;; fail
     (if (search b (repeat-string a repetitions)) (return repetitions))))
 
 ;; some limits
