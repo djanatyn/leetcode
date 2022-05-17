@@ -1,4 +1,5 @@
 ;; https://leetcode.com/problems/repeated-string-match/
+;; class definition (CLOS) for examples
 
 (defpackage :repeated-string-match
   (:use :cl :iterate))
@@ -21,7 +22,6 @@
 (defparameter *example-2*
   (make-instance 'example :a "a" :b "aa" :output 2))
 
-
 (defun repeat-string (str n)
   (apply #'concatenate 'string (iterate (repeat n) (collect str))))
 
@@ -30,6 +30,16 @@
     (for repetitions upfrom 0)
     (if (>= repetitions 1000) (error "hit max repetitions")) ;; fail
     (if (search b (repeat-string a repetitions)) (return repetitions))))
+
+(defun same-characters (a b)
+  "check if string `a` and string `b` share the same set of characters."
+ (null (set-exclusive-or
+        (coerce a 'list)
+        (coerce b 'list))))
+
+;; next steps
+;; - check set of characters to fail early
+;; - figure out what the max length should be by inspecting `a` or `b`
 
 ;; some limits
 ;; - the character that occurs the most in B, is at least the maximum amount of
