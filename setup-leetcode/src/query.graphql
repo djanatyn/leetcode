@@ -1,0 +1,3 @@
+query questionData($titleSlug: String!) {
+  question(titleSlug: $titleSlug) { content }
+}
